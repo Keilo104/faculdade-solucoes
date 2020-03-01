@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="João Antonio A. Souza" />
+	<meta name="revised" content="April 13th, 2019, 7:50 pm" />
+	<meta name="description" content="Atividade de Tabelas para Introdução a Web" />
+	<meta name="tags" content="tabela, atividade, inw, introdução, web, ibge, dados, carro" />
+	<title>Atividade 04 de Introdução a Web</title>
+</head>
+<body>
+	<h1>Questão 01</h1>
+	<table border="1">
+		<thead>
+			<tr><th colspan="4">Tabela de preços</th></tr>
+		</thead>
+		<tbody>
+			<tr><td></td><th scope="col">Trompete</th><th scope="col">Trombone</th><th scope="col">Trompa</th></tr>
+			<tr><th scope="row">Seminovos</th><td>R$ 500,00</td><td>R$ 640,00</td><td>R$ 650,00</td></tr>
+			<tr><th scope="row">Novos</th><td>R$ 1.200,00</td><td>R$ 2.000,00</td><td>R$ 1.850,00</td></tr>
+		</tbody>
+	</table>
+	
+	<h1>Questão 02</h1>
+	<table border="1">
+		<thead>
+			<tr><th colspan="5">Tabela de Serviços Mecânicos</th></tr>
+		</thead>
+		<tbody>
+			<tr><th rowspan="5">Nacionais</th><th scope="col">Veículos</th><th scope="col">Serviço</th><th scope="col">Tempo Previsto</th><th scope="col">Valor</th></tr>
+			<tr><th scope="row">S-10</th><td>Suspensão</td><td>3h25min</td><td>R$ 350,00</td></tr>
+			<tr><th scope="row">Ranger</th><td>Freio</td><td>3h45min</td><td>R$ 200,00</td></tr>
+			<tr><th scope="row">Hilux</th><td>Troca de bateria</td><td>30min</td><td>R$ 25,00</td></tr>
+			<tr><th scope="row">D-10</th><td>Alinhamento</td><td>1h40m</td><td>R$ 220,00</td></tr>
+			<tr><th rowspan="3">Importados</th><th scope="row">Ferrari</th><td>Revisão</td><td>8h30min</td><td>R$ 1.200,00</td></tr>
+			<tr><th scope="row">Audi</th><td>Troca de Óleo</td><td>30min</td><td>R$ 150,00</td></tr>
+			<tr><th scope="row">Porsche</th><td>Higienização do ar-condicionado</td><td>4h</td><td>R$ 860,00</td></tr>
+		</tbody>
+	</table>
+	
+	<h1>Questão 03</h1>
+	<!-- Definição de tortura, a pessoa que fez essa tabela merece ser executada -->
+	<table border="1">
+		<tr><th colspan="7">Venha morar em nossos belos residenciais - Viver Serra</th></tr>
+		<tr><th colspan="3">Apartamentos</th><td>Localização</td><td>Laranjeiras - 4 min.</td><td>Manguinhos - 2 min.</td><td>Vitória - 8 min.</td></tr>
+		<tr><td>2 Quartos</td><td>3 Quartos</td><td>4 Quartos</td><th colspan="4">Corretor on-line</th></tr>
+		<tr><td>1 Suíte</td><td>2 Suíte</td><td>3 Suíte</td><td>33333-2333</td><td>9999-9969</td><td>8888-8868</td><td>8111-1168</td></tr>
+		<tr><th rowspan="3">Lazer</th><td colspan="2">Piscinal</td><th rowspan="3" colspan="2">Pronto para morar</th><th rowspan="3" colspan="2">LANÇAMENTO</th></tr>
+		<tr><td colspan="2">Salão de Festas</td></tr>
+		<tr><td colspan="2">Quadra Poliesportiva</td></tr>
+	</table>
+	
+	<h1>Questão 04</h1>
+	<table border="1">
+		<thead>
+			<tr><th colspan="14">População residente</th></tr>
+			<tr><th rowspan="3" scope="col">Sexo e grupos de idade</th><th colspan="12" id="def">Tipo de deficiência</th><th rowspan="3" scope="col">Total (1) (2)</th></tr>
+			<tr><th rowspan="2" id="min1def" headers="def">Pelo menos uma das deficiências investigadas (1)</th><th colspan="3" id="vis" headers="def">Visual</th><th colspan="3" id="aud" headers="def">Auditiva</th><th colspan="3" id="mot" headers="def">Motora</th><th rowspan="2" id="ment" headers="def">Mental / intelectual</th><th rowspan="2" id="nenh" headers="def">Nenhuma dessas deficiências (3)</th></tr>
+			<tr><th id="ncsgvis" headers="def vis">Não consegue de modo algum</th><th id="grdfvis" headers="def vis">Grande dificuldade</th><th id="agdifvis" headers="def vis">Alguma dificuldade</th><th id="ncsgaud" headers="def aud">Não consegue de modo algum</th><th id="grdfaud" headers="def aud">Grande dificuldade</th><th id="agdifaud" headers="def aud">Alguma dificuldade</th><th id="ncsgmot" headers="def mot">Não consegue de modo algum</th><th id="grdfmot" headers="def mot">Grande dificuldade</th><th id="agdifmot" headers="def mot">Alguma dificuldade</th></tr>
+		</thead>
+		<tbody>
+			<tr><th scope="row">0 a   9 anos</th><td headers="def min1def">1.532.671,65</td><td headers="def vis ncsgvis">42.342,03</td><td headers="def vis grdfvis">122.426,73</td><td headers="def vis agdifvis">793.380,49</td><td headers="def aud ncsgaud">30.086,93</td><td headers="def aud grdfaud">42.972,42</td><td headers="def aud agdifaud">239.378,29</td><td headers="def mot ncsgmot">87.539,58</td><td headers="def mot grdfmot">50.912,01</td><td headers="def mot agdifmot">142.267,10</td><td headers="def ment">202.116,31</td><td headers="def nenh">27.237.703,68</td><td>28.774.500,45</td></tr>
+			<tr><th scope="row">10 a 14 anos</th><td headers="def min1def">1.926.730,00</td><td headers="def vis ncsgvis">24.057,82</td><td headers="def vis grdfvis">175.175,88</td><td headers="def vis agdifvis">1.286.971,46</td><td headers="def aud ncsgaud">22.378,63</td><td headers="def aud grdfaud">45.913,50</td><td headers="def aud agdifaud">235.471,33</td><td headers="def mot ncsgmot">30.395,75</td><td headers="def mot grdfmot">34.179,34</td><td headers="def mot agdifmot">108.119,67</td><td headers="def ment">189.148,54</td><td headers="def nenh">15.237.844,80</td><td>17.167.135,02</td></tr>
+			<tr><th scope="row">15 a 19 anos</th><td headers="def min1def">2.017.528,78</td><td headers="def vis ncsgvis">24.456,60</td><td headers="def vis grdfvis">195.493,16</td><td headers="def vis agdifvis">1.357.294,96</td><td headers="def aud ncsgaud">24.835,55</td><td headers="def aud grdfaud">44.564,22</td><td headers="def aud agdifaud">219.823,66</td><td headers="def mot ncsgmot">28.333,63</td><td headers="def mot grdfmot">36.892,16</td><td headers="def mot agdifmot">126.463,74</td><td headers="def ment">186.290,85</td><td headers="def nenh">14.966.030,63</td><td>16.986.787,61</td></tr>
+			<tr><th scope="row">20 a 24 anos</th><td headers="def min1def">2.215.798,63</td><td headers="def vis ncsgvis">29.807,74</td><td headers="def vis grdfvis">210.571,03</td><td headers="def vis agdifvis">1.473.070,48</td><td headers="def aud ncsgaud">30.591,06</td><td headers="def aud grdfaud">48.795,26</td><td headers="def aud agdifaud">255.108,96</td><td headers="def mot ncsgmot">29.727,64</td><td headers="def mot grdfmot">45.941,51</td><td headers="def mot agdifmot">163.937,12</td><td headers="def ment">188.606,37</td><td headers="def nenh">15.016.937,53</td><td>17.240.863,80</td></tr>
+			<tr><th scope="row">25 a 29 anos</th><td headers="def min1def">2.376.938,37</td><td headers="def vis ncsgvis">35.859,54</td><td headers="def vis grdfvis">232.450,60</td><td headers="def vis agdifvis">1.540.444,58</td><td headers="def aud ncsgaud">31.145,74</td><td headers="def aud grdfaud">53.492,23</td><td headers="def aud agdifaud">288.966,46</td><td headers="def mot ncsgmot">30.110,82</td><td headers="def mot grdfmot">59.513,05</td><td headers="def mot agdifmot">214.932,99</td><td headers="def ment">191.943,27</td><td headers="def nenh">14.715.517,86</td><td>17.102.917,44</td></tr>
+			<tr><th scope="row">30 a 34 anos</th><td headers="def min1def">2.447.685,43</td><td headers="def vis ncsgvis">34.985,51</td><td headers="def vis grdfvis">235.408,55</td><td headers="def vis agdifvis">1.523.121,53</td><td headers="def aud ncsgaud">30.538,25</td><td headers="def aud grdfaud">63.894,41</td><td headers="def aud agdifaud">325.832,53</td><td headers="def mot ncsgmot">30.249,38</td><td headers="def mot grdfmot">84.790,43</td><td headers="def mot agdifmot">292.219,81</td><td headers="def ment">194.724,07</td><td headers="def nenh">13.287.818,98</td><td>15.744.616,15</td></tr>
+			<tr><th scope="row">35 a 39 anos</th><td headers="def min1def">2.590.841,46</td><td headers="def vis ncsgvis">32.346,33</td><td headers="def vis grdfvis">258.624,28</td><td headers="def vis agdifvis">1.604.547,37</td><td headers="def aud ncsgaud">26.752,99</td><td headers="def aud grdfaud">70.324,97</td><td headers="def aud agdifaud">362.784,27</td><td headers="def mot ncsgmot">27.382,89</td><td headers="def mot grdfmot">117.304,23</td><td headers="def mot agdifmot">372.978,18</td><td headers="def ment">185.380,20</td><td headers="def nenh">11.290.507,14</td><td>13.888.190,86</td></tr>
+			<tr><th scope="row">40 a 44 anos</th><td headers="def min1def">3.797.150,41</td><td headers="def vis ncsgvis">31.165,70</td><td headers="def vis grdfvis">438.135,34</td><td headers="def vis agdifvis">2.642.126,71</td><td headers="def aud ncsgaud">23.842,82</td><td headers="def aud grdfaud">85.536,63</td><td headers="def aud agdifaud">444.978,47</td><td headers="def mot ncsgmot">28.101,62</td><td headers="def mot grdfmot">169.095,24</td><td headers="def mot agdifmot">535.289,05</td><td headers="def ment">199.101,81</td><td headers="def nenh">9.205.526,73</td><td>13.008.496,00</td></tr>
+			<tr><th scope="row">45 a 49 anos</th><td headers="def min1def">4.763.491,35</td><td headers="def vis ncsgvis">31.232,60</td><td headers="def vis grdfvis">617.094,63</td><td headers="def vis agdifvis">3.481.074,42</td><td headers="def aud ncsgaud">18.723,53</td><td headers="def aud grdfaud">97.629,55</td><td headers="def aud agdifaud">529.425,81</td><td headers="def mot ncsgmot">27.528,62</td><td headers="def mot grdfmot">245.678,33</td><td headers="def mot agdifmot">712.135,48</td><td headers="def ment">195.654,14</td><td headers="def nenh">7.066.675,84</td><td>11.834.646,76</td></tr>
+			<tr><th scope="row">50 a 54 anos</th><td headers="def min1def">4.705.128,64</td><td headers="def vis ncsgvis">28.183,74</td><td headers="def vis grdfvis">655.231,83</td><td headers="def vis agdifvis">3.337.231,10</td><td headers="def aud ncsgaud">17.408,39</td><td headers="def aud grdfaud">119.958,35</td><td headers="def aud agdifaud">625.725,52</td><td headers="def mot ncsgmot">29.657,19</td><td headers="def mot grdfmot">331.081,09</td><td headers="def mot agdifmot">890.582,88</td><td headers="def ment">183.473,68</td><td headers="def nenh">5.425.648,72</td><td>10.134.321,67</td></tr>
+			<tr><th scope="row">55 a 59 anos</th><td headers="def min1def">4.170.185,04</td><td headers="def vis ncsgvis">28.067,79</td><td headers="def vis grdfvis">605.385,65</td><td headers="def vis agdifvis">2.819.566,86</td><td headers="def aud ncsgaud">15.520,39</td><td headers="def aud grdfaud">130.588,50</td><td headers="def aud agdifaud">668.086,05</td><td headers="def mot ncsgmot">32.728,10</td><td headers="def mot grdfmot">378.371,65</td><td headers="def mot agdifmot">975.819,62</td><td headers="def ment">157.493,07</td><td headers="def nenh">4.111.740,29</td><td>8.284.432,94</td></tr>
+			<tr><th scope="row">60 a 64 anos</th><td headers="def min1def">3.524.274,83</td><td headers="def vis ncsgvis">25.855,26</td><td headers="def vis grdfvis">527.765,34</td><td headers="def vis agdifvis">2.258.647,19</td><td headers="def aud ncsgaud">13.267,13</td><td headers="def aud grdfaud">141.021,71</td><td headers="def aud agdifaud">686.776,09</td><td headers="def mot ncsgmot">34.945,39</td><td headers="def mot grdfmot">382.901,49</td><td headers="def mot agdifmot">981.814,96</td><td headers="def ment">125.995,65</td><td headers="def nenh">2.977.236,38</td><td>6.503.286,73</td></tr>
+			<tr><th scope="row">65 a 69 anos</th><td headers="def min1def">2.894.694,15</td><td headers="def vis ncsgvis">24.058,20</td><td headers="def vis grdfvis">458.022,25</td><td headers="def vis agdifvis">1.748.246,45</td><td headers="def aud ncsgaud">11.925,12</td><td headers="def aud grdfaud">147.136,17</td><td headers="def aud agdifaud">678.304,57</td><td headers="def mot ncsgmot">40.186,17</td><td headers="def mot grdfmot">371.513,32</td><td headers="def mot agdifmot">914.326,63</td><td headers="def ment">96.769,28</td><td headers="def nenh">1.957.072,97</td><td>4.852.788,62</td></tr>
+			<tr><th scope="row">70 a 74 anos</th><td headers="def min1def">2.451.628,31</td><td headers="def vis ncsgvis">23.651,71</td><td headers="def vis grdfvis">426.442,05</td><td headers="def vis agdifvis">1.381.745,21</td><td headers="def aud ncsgaud">10.570,96</td><td headers="def aud grdfaud">164.179,49</td><td headers="def aud agdifaud">669.688,67</td><td headers="def mot ncsgmot">49.565,35</td><td headers="def mot grdfmot">389.802,99</td><td headers="def mot agdifmot">848.984,96</td><td headers="def ment">88.423,43</td><td headers="def nenh">1.292.633,79</td><td>3.744.737,62</td></tr>
+			<tr><th scope="row">75 a 79 anos</th><td headers="def min1def">1.839.630,55</td><td headers="def vis ncsgvis">24.466,02</td><td headers="def vis grdfvis">353.343,71</td><td headers="def vis agdifvis">947.089,12</td><td headers="def aud ncsgaud">10.000,00</td><td headers="def aud grdfaud">169.751,80</td><td headers="def aud agdifaud">561.265,36</td><td headers="def mot ncsgmot">58.576,88</td><td headers="def mot grdfmot">365.769,04</td><td headers="def mot agdifmot">676.581,95</td><td headers="def ment">81.904,60</td><td headers="def nenh">730.605,02</td><td>2.570.686,34</td></tr>
+			<tr><th scope="row">80 anos ou mais</th><td headers="def min1def">2.351.670,77</td><td headers="def vis ncsgvis">65.840,45</td><td headers="def vis grdfvis">544.961,88</td><td headers="def vis agdifvis">1.016.923,75</td><td headers="def aud ncsgaud">26.618,50</td><td headers="def aud grdfaud">373.207,34</td><td headers="def aud agdifaud">782.529,36</td><td headers="def mot ncsgmot">169.391,91</td><td headers="def mot grdfmot">635.183,40</td><td headers="def mot agdifmot">875.794,42</td><td headers="def ment">144.510,35</td><td headers="def nenh">565.475,20</td><td>2.917.390,98</td></tr>
+		</tbody>
+		<tfoot>
+			<tr><th scope="row">Total</th><td headers="def min1def">45.606.048,39</td><td headers="def vis ncsgvis">506.377,06</td><td headers="def vis grdfvis">6.056.532,89</td><td headers="def vis agdifvis">29.211.481,66</td><td headers="def aud ncsgaud">344.205,98</td><td headers="def aud grdfaud">1.798.966,54</td><td headers="def aud agdifaud">7.574.145,39</td><td headers="def mot ncsgmot">734.420,92</td><td headers="def mot grdfmot">3.698.929,29</td><td headers="def mot agdifmot">8.832.248,55</td><td headers="def ment">2.611.535,64</td><td headers="def nenh">145.084.975,56</td><td>190.755.799,00</td></tr>
+		</tfoot>
+	</table>
+	<p>Fonte: IBGE, Censo Demográfico 2010.</p>
+	<p>(1) As pessoas incluídas em mais de um tipo de deficiência foram contadas apenas uma vez.  (2) Inclusive as pessoas sem declaração destas  deficiências.  (3) Inclusive a população sem qualquer tipo de deficiência.</p>
+	
+	
+	<h1>Questão 05</h1>
+	<!-- why -->
+	<table border="1">
+		<tr><td rowspan="2">A</td><td>B</td><td>C</td><td>D</td><td>E</td><td rowspan="4">F</td><td>G</td><td>H</td></tr>
+		<tr><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td></tr>
+		<tr><td>O</td><td>P</td><td rowspan="2" colspan="3">Q</td><td>R</td><td rowspan="6">S</td></tr>
+		<tr><td>T</td><td>U</td><td>V</td></tr>
+		<tr><td rowspan="4">W</td><td>X</td><td>Y</td><td>Z</td><td>AA</td><td>AB</td><td>AC</td></tr>
+		<tr><td colspan="2">AD</td><td rowspan="4">AE</td><td colspan="3">AF</td></tr>
+		<tr><td>AG</td><td>AH</td><td>AI</td><td>AJ</td><td>AK</td></tr>
+		<tr><td>AL</td><td>AM</td><td>AN</td><td rowspan="2">AM</td><td>AO</td></tr>
+		<tr><td>AP</td><td>AQ</td><td>AR</td><td>AS</td><td colspan="2" rowspan="3">AT</td></tr>
+		<tr><td>AU</td><td colspan="3" rowspan="2">AV</td><td>AW</td><td>AX</td></tr>
+		<tr><td>AY</td><td>AZ</td><td>BA</td></tr>
+	</table>
+</body>
+</html>

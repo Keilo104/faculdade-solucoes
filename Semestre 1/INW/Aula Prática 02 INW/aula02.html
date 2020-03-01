@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Aula sobre formulários</title>
+    </head>
+    <body>
+        <form action="http://cafe.intermidia.icmc.usp.br:22080/humberto/formulario.php"
+              method="post"
+              enctype="multipart/form-data">
+            <input type="hidden" name="time" value="vasco" />
+            <fieldset id="cadastro">
+                <legend>Matricular aluno</legend>
+                <div>
+                  Inserir imagem do aluno: <input type="file" name="foto[]" id="foto" multiple />
+                </div>
+                <div>
+                    <label for="txtNome">Nome: </label>
+                    <input type="text"
+                           name="nNome"
+                           id="txtNome"
+                           size="40"
+                           maxlength="50"
+                           placeholder="Digite seu nome" />
+                </div>
+                <div>
+                    <label for="txtEmail">eMail: </label>
+                    <input type="text"
+                           name="nEmail"
+                           id="txtEmail"
+                           size="20"
+                           maxlength="30"
+                           placeholder="Digite seu email" />
+                </div>
+                <div>
+                    <label for="txtIdade">Idade: </label>
+                    <input type="number"
+                           min="15"
+                           max="40" 
+                           name="nIdade"
+                           id="txtIdade"/>
+                </div>
+                <div>
+                    <label for="txtData">Data de Nascimento: </label>
+                    <input type="date"
+                           name="nData"
+                           id="txtData"
+                           size="15" />
+                </div>
+                <div>
+                    <span id="sexo">Sexo:</span>
+                    <input type="radio"
+                           name="nSexo"
+                           id="radioMasc"
+                           value="M" />
+                          <label for="radioMasc"
+                                 aria-labeledbyid="sexo">Masculino</label>
+                    <input type="radio"
+                           name="nSexo"
+                           id="radioFem"
+                           value="F" />
+                          <label for="radioFem"
+                                 aria-labeledbyid="sexo">Feminino</label>
+                </div>
+                <div>
+                    <label for="dropEstado">Estado: </label>
+                    <select name="nEstado"
+                            id="dropEstado">
+                        <optgroup label="Região Norte">
+                            <option value="AC">Acre</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="PA">Pará</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="TO">Tocantins</option>
+                        </optgroup>
+                        <optgroup label="Região Nordeste">
+                            <option value="AL">Alagoas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="SE">Sergipe</option>
+                        </optgroup>
+                        <optgroup label="Região Centro-Oeste">
+                            <option value="DF">Distrito Federal</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                        </optgroup>
+                        <optgroup label="Região Sudeste">
+                            <option value="ES">Espírito Santo</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="SP">São Paulo</option>
+                        </optgroup>
+                        <optgroup label="Região Sul">
+                            <option value="PR">Paraná</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <label for="txtCidade">Cidade: </label>
+                    <input type="text"
+                           name="nCidade"
+                           id="txtCidade"
+                           list="listCidades"
+                           size="20"
+                           maxlenght="30"
+                           placeholder="Digite sua cidade" />
+                    <datalist id="listCidades">
+                        <option value="Rio de Janeiro"></option>
+                        <option value="Araraquara"></option>
+                        <option value="São Carlos"></option>
+                        <option value="Ibaté"></option>
+                        <option value="Rio Claro"></option>
+                    </datalist>
+                </div>
+                <div>
+                    <label for="txtFale">Fale sobre você:</label>
+                    <textarea name="nFale"
+                              id="txtFale"
+                              cols="45"
+                              rows="5"
+                              placeholder="Fale sobre você"></textarea>
+                </div>
+                <div>
+                    <label for="chCor">Cor da camiseta:</label>
+                    <input type="color"
+                           name="nCor"
+                           id="chCor"
+                           value="#FF0080" />
+                </div>
+                <div><label for="barIngles">Nível de conhecimento de inglês:</label>
+                    baixo <input type="range"
+                                 id="barIngles"
+                                 min="0"
+                                 max="10"
+                                 step="2" /> alto
+                </div>
+                <div>
+                    <input type="checkbox"
+                           name="nNoticias"
+                           id="chkNoticias"
+                           checked />
+                    <label for="chkNoticias">Quero receber emails com notícias</label>
+                </div>
+                <div>
+                    <input type="text"
+                           placeholder="QRB-001"
+                           name="codigo"
+                           title="O código deve possuir 3 letras maiúsculas, traço, e 3 números"
+                           pattern="[A-Z]{3}-[0-9]{3}" />
+                </div>
+                <div align="right">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Enviar</button>
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
