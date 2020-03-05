@@ -3,8 +3,7 @@ import java.time.LocalDate;
 public class Post {
     private String quote;
     private LocalDate date;
-    private int claps;
-    private int boos;
+    private int claps, boos;
     private UserAccount user;
 
     public Post(UserAccount account, String quote) {
@@ -12,12 +11,14 @@ public class Post {
         this.user = account;
 
         this.date = LocalDate.now();
-        this.claps = 0;
-        this.boos = 0;
     }
 
-    public String quote() {
+    public String getQuote() {
         return quote;
+    }
+
+    public void setQuote(String quote) {
+        this.quote = quote;
     }
 
     public LocalDate date() {

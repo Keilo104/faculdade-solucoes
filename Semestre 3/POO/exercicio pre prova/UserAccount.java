@@ -1,15 +1,8 @@
 public class UserAccount {
-    private String email;
-    private String userName;
-
+    private String email, userName;
     private UserAccount[] followers;
-    private int qtdFollowers;
-
-    private Post[] timeline;
-    private int posTimelineAtual;
-
-    private Post[] posts;
-    private int qtdPost;
+    private Post[] timeline, posts;
+    private int qtdFollowers, qtdTimeline, qtdPost;
 
     public UserAccount(String user, String email) {
         this.userName = user;
@@ -38,7 +31,9 @@ public class UserAccount {
         this.posts[qtdPost++] = newPost;
 
         for (int i = 0; i < qtdFollowers; i++) {
-            this.followers[i].updateTimeline(newPost);
+            if(this.followers[i] != null) {
+                this.followers[i].updateTimeline(newPost);
+            }
         }
     }
 
@@ -51,22 +46,26 @@ public class UserAccount {
     }
 
     public void updateTimeline(Post newPost) {
-        this.timeline[posTimelineAtual++ % 10] = newPost;
+        this.timeline[qtdTimeline++ % 10] = newPost;
     }
 
     public void acceptFollower(UserAccount newFollower) {
         this.followers[qtdFollowers++] = newFollower;
     }
 
+    public void blockFollower(UserAccount follower) {
+        for (int i = 0; i < qtdFollowers; i++) {
+            if(this.followers[i] == follower) {
+                this.followers[i] = null;
+            }
+        }
+    }
+
     public String showTimeline() {
         String retorno = "";
 
-        if(posTimelineAtual > 9) {
-            for (int i = 0; i < 10; i++) {
-                retorno += this.timeline[i].show() + "\n";
-            }
-        } else {
-            for (int i = 0; i < posTimelineAtual; i++) {
+        for (int i = 0; i < 10; i++) {
+            if(this.timeline[i] != null) {
                 retorno += this.timeline[i].show() + "\n";
             }
         }
@@ -78,7 +77,9 @@ public class UserAccount {
         String retorno = "";
 
         for (int i = 0; i < qtdPost; i++) {
-            retorno += this.posts[i].show() + "\n";
+            if(this.posts[i] != null) {
+                retorno += this.posts[i].show() + "\n";
+            }
         }
 
         return retorno;
@@ -88,7 +89,9 @@ public class UserAccount {
         String retorno = "";
 
         for (int i = 0; i < qtdFollowers; i++) {
-            retorno += this.followers[i].userName() + ", " + this.followers[i].getEmail() + "\n";
+            if(this.followers[i] != null) {
+                retorno += this.followers[i].userName() + ", " + this.followers[i].getEmail() + "\n";
+            }
         }
 
         return retorno;
@@ -99,4 +102,6 @@ public class UserAccount {
 
         return true;
     }
+
+
 }

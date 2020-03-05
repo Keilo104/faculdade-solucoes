@@ -7,6 +7,9 @@ public class Principal {
 
         pessoalegal.publish("a vida é difícil, porém");
         pessoalegal.publish("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+        pessoalegal.blockFollower(seguidor1);
+
         pessoalegal.publish("minha vida está caindo aos pedaços.");
 
         pessoalegal.delete(2);
