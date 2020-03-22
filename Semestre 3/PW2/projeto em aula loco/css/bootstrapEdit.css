@@ -1,0 +1,14 @@
+a{
+	color: #333;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+	color: #333;
+    background-color: #1e7e34;
+}
+
+#principal .col{
+	border: 1px solid black;
+	text-align: justify;
+	margin: 10px;
+}

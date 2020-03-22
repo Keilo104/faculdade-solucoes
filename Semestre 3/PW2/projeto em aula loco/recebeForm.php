@@ -1,7 +1,8 @@
 <?php
 include("util.php");
+session_start();
 
-debug($_POST);
+//debug($_POST);
 
 $erro = "";
 
@@ -21,6 +22,10 @@ if($_POST["password"] == "") {
 	$erro .= "Informe a senha;";
 }
 
+if($_POST["country"] == "NULL") {
+	$erro .= "Informe o país;";
+}
+
 if($_POST["cnumber"] == "") {
 	$erro .= "Informe o número de celular;";
 }
@@ -35,6 +40,14 @@ if(!array_key_exists("cursos", $_POST)) {
 
 if(!$erro) {
 	$erro = "success";
+	session_destroy();
+} else {
+	$_SESSION["firstname"] = $_POST["firstname"];
+	$_SESSION["surname"] = $_POST["surname"];
+	$_SESSION["country"] = $_POST["country"];
+	$_SESSION["cnumber"] = $_POST["cnumber"];
+	$_SESSION["cursos"] = $_POST["cursos"];
+	$_SESSION["email"] = $_POST["email"];
 }
 
 header("Location:index.php?msg=" . $erro);

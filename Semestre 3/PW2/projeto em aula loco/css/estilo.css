@@ -81,14 +81,6 @@ footer{
 	margin-bottom: 15px;
 }
 
-.erro{
-	margin:auto;
-	background-color: red;
-	padding: 20px;
-	font-weight: bold;
-	text-align: center;
-}
-
 .esquerda{
 	float: left;
 }
@@ -116,7 +108,7 @@ button{
 	padding: 15px;
 }
 
-input[type=text], select, input[type=password] {
+input, select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -124,6 +116,11 @@ input[type=text], select, input[type=password] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+  width: auto;
 }
 
 input[type=submit] {
@@ -153,7 +150,31 @@ input[type=submit] {
   float: right;
 }
 
-li {
-	margin: 10px;
-	list-style-type: none;
+.sucesso{
+	background-color: blue;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.erro{
+	background-color: #e82121;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.erro2{
+	background-color: #e82121;
+    font-weight: bold;
+    text-align: left;
+    padding: 15px;
+    padding-left: 35px; 
+    margin-bottom: 20px;
+}
+
+.erro2 li{
+	padding: 15px;
 }
