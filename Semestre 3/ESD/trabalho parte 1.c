@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
+#include <time.h>
 
 typedef struct musica {
 	int id;
@@ -26,6 +28,7 @@ typedef struct playlist_no {
 typedef struct lplaylists_no {
 	int id;
 	char nome[200];
+	int qtd_musicas;
 	playlist_no *musicas;
 	struct lplaylists_no *prox;
 } lplaylists_no;
@@ -40,27 +43,36 @@ void           print_song              (musica* song);
 lplaylists_no* create_list_playlist    ();
 lplaylists_no* create_new_playlist     ();
 playlist_no*   create_playlist_no      ();
-void           add_to_playlist         (playlist_no*, musica*);
+void           add_to_playlist         (lplaylists_no*, musica*);
 musica*        search_collection       (int);
 void           add_to_lista_playlist   (lplaylists_no*);
 void           print_playlist          (lplaylists_no*);
 void           imprimir_playlist       ();
 lplaylists_no* search_playlist         (int);
 void           remove_song             ();
+void           shuffle_playlist        (lplaylists_no*);
+void           clear_playlist          (lplaylists_no*);
+void           swap_items              (int*, int*);
+void           shuffle_array           (int*, int);
+void           option_shuffle_playlist ();
 
 
 // GLOBAIS DE CONTAGEM
 int cont_musicas = 0;
 int cont_playlists = 0;
 
+
 // LISTAS GLOBAIS
 musica_no* colecao;
 lplaylists_no* lista_playlist;
+
 
 int main() {
 	int resposta = -1;
 	colecao = create_collection();
 	lista_playlist = create_list_playlist();
+	
+	setlocale(LC_ALL, "Portuguese");
 	
 	while(resposta != 0) {
 		exibir_menu();
@@ -71,26 +83,25 @@ int main() {
 			musica* new_musica = create_song();
 			add_first_to_collection(new_musica);
 			
-			printf("Musica inserida com sucesso!\n");
+			printf("Música inserida com sucesso!\n");
 			
 		} else if(resposta == 2) {
 			print_collection();
 			
 		} else if(resposta == 3) {
-			lplaylistsprintf("Obrigado por usar o programa!\n");_no* new_playlist = create_new_playlist();
+			lplaylists_no* new_playlist = create_new_playlist();
 			add_to_lista_playlist(new_playlist);
 			
 			printf("Playlist criada com sucesso!\n");
 			
 		} else if(resposta == 4) {
-			printf("how do that\n\n");
+			option_shuffle_playlist();
 			
 		} else if(resposta == 5) {
 			imprimir_playlist();
 			
 		} else if(resposta == 6) {
 			remove_song();
-			printf("Música removida com sucesso!\n");
 			
 		} else if(resposta == 0){
 			printf("Obrigado por usar o programa!\n");
@@ -105,13 +116,13 @@ int main() {
 
 
 void exibir_menu() {
-	printf("\nEscolha uma das opcoes abaixo:\n");
-	printf("[1] - Cadastrar nova musica\n");
-	printf("[2] - Imprimir todas as musicas na colecao\n");
+	printf("\nEscolha uma das opções abaixo:\n");
+	printf("[1] - Cadastrar nova música\n");
+	printf("[2] - Imprimir todas as músicas na coleção\n");
 	printf("[3] - Criar nova playlist\n");
 	printf("[4] - Shuffle uma playlist\n");
-	printf("[5] - Imprimir todas as musicas numa playlist\n");
-	printf("[6] - Remover uma musica da colecao\n");
+	printf("[5] - Imprimir todas as músicas numa playlist\n");
+	printf("[6] - Remover uma música da coleção\n");
 	printf("[0] - Sair do programa\n");
 	
 	printf(">>> ");
@@ -138,13 +149,13 @@ musica* create_song() {
 	
 	new_song->id = cont_musicas++;
 	
-	printf("Digite o nome da nova musica: ");
+	printf("Digite o nome da nova música: ");
 	gets(new_song->titulo);
 	
-	printf("Digite o nome do artista da nova musica: ");
+	printf("Digite o nome do artista da nova música: ");
 	gets(new_song->artista);
 	
-	printf("Digite o tempo da musica no formato HH:MM:SS: ");
+	printf("Digite o tempo da música no formato HH:MM:SS: ");
 	gets(duration);
 	
 	strncpy(hour_string, duration, 2);
@@ -184,7 +195,7 @@ void print_collection() {
 	int cont = 1;
 	
 	while(p) {
-		printf("\n\nMusica #%d\n\n", cont++);
+		printf("\n\nMúsica #%d\n\n", cont++);
 		print_song(p->musica);
 		
 		p = p->prox;
@@ -201,7 +212,7 @@ void print_song(musica* song) {
 	segundos = song->duracao % 60;
 	minutos = (song->duracao / 60) % 60;
 	horas = song->duracao / 60 / 60;
-	printf("Duracao: %02d:%02d:%02d\n", horas, minutos, segundos);
+	printf("Duração: %02d:%02d:%02d\n", horas, minutos, segundos);
 }
 
 
@@ -210,6 +221,7 @@ lplaylists_no* create_list_playlist() {
 	
 	new_list->musicas = NULL;
 	new_list->prox = NULL;
+	new_list->qtd_musicas = 0;
 	
 	return new_list;
 }
@@ -224,18 +236,20 @@ playlist_no* create_playlist_no() {
 }
 
 
-void add_to_playlist(playlist_no* playlist, musica* musica) {
+void add_to_playlist(lplaylists_no* playlist, musica* musica) {
 	if(musica && playlist) {
 		playlist_no* new_no = malloc(sizeof(playlist_no));
-		playlist_no* p = playlist;
+		playlist_no* p = playlist->musicas;
 		new_no->musica = musica;
-		new_no->prox = playlist;
+		new_no->prox = playlist->musicas;
 		
-		while(p->prox != playlist) {
+		while(p->prox != playlist->musicas) {
 			p = p->prox;
 		}
 		
 		p->prox = new_no;
+		
+		playlist->qtd_musicas++;
 	}
 }
 
@@ -265,11 +279,10 @@ lplaylists_no* create_new_playlist() {
 	printf("Digite o nome da nova playlist: ");
 	gets(new_playlist->nome);
 	
-	printf("Digite os ids das musicas dessa playlist: ");
+	printf("Digite os ids das músicas dessa playlist: ");
 	gets(musicas);
 	
-	playlist_no* playlist = create_playlist_no();
-	new_playlist->musicas = playlist;
+	new_playlist->musicas = create_playlist_no();
 	
 	song = strtok(musicas, " ");
 	
@@ -277,7 +290,7 @@ lplaylists_no* create_new_playlist() {
 		song_id = atoi(song);
 		
 		musica* musica = search_collection(song_id);
-		add_to_playlist(playlist, musica);
+		add_to_playlist(new_playlist, musica);
 		
 		song = strtok(NULL, " ");
     }
@@ -299,7 +312,7 @@ void print_playlist(lplaylists_no* playlist) {
 	int cont = 1;
 	
 	while(p != playlist->musicas) {
-		printf("\n\nMusica #%d\n\n", cont++);
+		printf("\n\nMúsica #%d\n\n", cont++);
 		print_song(p->musica);
 		
 		p = p->prox;
@@ -329,7 +342,16 @@ void imprimir_playlist() {
 	fflush(stdin);
 	
 	lplaylists_no* playlist = search_playlist(id);
-	print_playlist(playlist);
+	
+	if(playlist) {
+		printf("\nId: %d\n", playlist->id);
+		printf("Nome da playlist: %s\n", playlist->nome);
+		printf("Quantidade de músicas: %d\n", playlist->qtd_musicas);
+		
+		print_playlist(playlist);
+	} else {
+		printf("Playlist não encontrada.\n");
+	}
 }
 
 
@@ -340,6 +362,7 @@ void remove_from_playlist(lplaylists_no* playlist, int id) {
 	while(q != playlist->musicas) {
 		if(q->musica->id == id) {
 			p->prox = q->prox;
+			playlist->qtd_musicas--;
 		}
 		
 		p = p->prox;
@@ -351,28 +374,117 @@ void remove_from_playlist(lplaylists_no* playlist, int id) {
 void remove_song() {
 	int id;
 	
-	printf("Digite o id da musica a ser removida: ");
+	printf("Digite o id da música a ser removida: ");
 	scanf("%d", &id);
 	fflush(stdin);
 	
 	lplaylists_no* p = lista_playlist->prox;
 	
-	while(p) {
-		remove_from_playlist(p, id);
+	if(p) {
+		while(p) {
+			remove_from_playlist(p, id);
+	
+			p = p->prox;
+		}
+		
+		musica_no* q = colecao->prox, *r;
+		
+		while(q) {
+			if(q->musica->id == id) {
+				if(q->prox) {
+					q->prox->ant = q->ant;
+				}
+				q->ant->prox = q->prox;
+				
+				r = q->prox;
+				free(q->musica);
+				free(q);
+				q = r;
+			} else {
+				q = q->prox;
+			}
+		}
+		
+		printf("Música removida com sucesso!\n");
+	} else {
+		printf("Música não encontrada.\n");
+	}
+}
 
+
+void clear_playlist(lplaylists_no* playlist) {
+	playlist_no* p = playlist->musicas;
+	playlist_no* q = playlist->musicas->prox;
+	
+	while(q != playlist->musicas) {
+		p = q;
+		q = q->prox;
+		free(p);
+	}
+	
+	playlist->qtd_musicas = 0;
+	playlist->musicas->prox = playlist->musicas;
+}
+
+
+void swap_items(int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+
+void shuffle_array(int *array, int n) {
+	srand(time(NULL));
+	int i, j;
+	
+	for(i = n-1; i > 0; i--) {
+		j = rand() % (i + 1);
+		
+		swap_items(&array[i], &array[j]);
+	}
+}
+
+
+void shuffle_playlist(lplaylists_no* playlist) {
+	int qtd_inicial_musicas = playlist->qtd_musicas;
+	
+	int *ids = malloc(sizeof(int) * qtd_inicial_musicas);
+	playlist_no *p = playlist->musicas->prox;
+	int x = 0;
+	
+	while(p != playlist->musicas) {
+		ids[x++] = p->musica->id;
+		
 		p = p->prox;
 	}
 	
-	musica_no* q = colecao->prox;
+	shuffle_array(ids, qtd_inicial_musicas);
 	
-	while(q) {
-		if(q->musica->id == id) {
-			q->prox->ant = q->ant;
-			q->ant->prox = q->prox;
-
-			free(q->musica);
-			free(q);
-		}
-		q = q->prox;
+	clear_playlist(playlist);
+	
+	for(x = 0; x < qtd_inicial_musicas; x++) {
+		musica* musica = search_collection(ids[x]);
+		add_to_playlist(playlist, musica);
 	}
+}
+
+
+void option_shuffle_playlist() {
+	int id;
+	
+	printf("Digite o id da playlist a ser aleatorizada: ");
+	scanf("%d", &id);
+	fflush(stdin);
+	
+	lplaylists_no* playlist = search_playlist(id);
+	
+	if(playlist) {
+		shuffle_playlist(playlist);
+		
+		printf("Playlist aleatorizada com sucesso!\n");
+	} else {
+		printf("Playlist não encontrada.\n");
+	}
+	
 }
