@@ -1,0 +1,66 @@
+faxina (organizado)
+
+
+é preciso gerenciar os funcionamentos de:
+
+- informações das pessoas que trabalham pro aplicativo
+- serviço que cada uma dessas pessoas prestam
+- informações de todos os clientes
+- agenda dos trabalhadores e clientes
+- relatório de cada cliente, quais limpezas falta quitar
+- relatório no final do mês de gastos e lucro
+- cadastro de novos clientes e faxineiros
+
+
+informações para guardar:
+- cliente -> nome, cpf, telefone, email, endereço completo
++ observações do cliente feitas pelo lado administrativo
++ histórico de limpezas
+
+- faxineiro -> nome, endereço, email, celular principal, celular secundário
++ observações do faxineiro feitas pelo lado administrativo
++ categorias que o faxineiro é bom ou ruim, gerada a partir de feedback
++ dias disponíveis do faxineiro
++ histórico de limpezas
+
+
+escalar o faxineiro:
+- mostrar pro administrador as observações do cliente e uma lista de todos os funcionários, com os não disponíveis não acessíveis
+- sugerir automaticamente um faxineiro bom para o serviço, de acordo com algumas categorias
++ ex: cliente gosta disso, faxineiro oferece isso
++ ex: cliente gostou desse faxineiro no passado
++ ex: cliente pode pedir algo em específico
+
+
+serviços:
+- fluxo de agendamento: agendada -> aguardando faxineiro -> faxineiro escalado -> serviço realizado e não pago -> serviço pago
+
+- quantidade de faxineiros em uma faxina é variável, min. 1
+
+- antes de escalar o faxineiro, é feito uma confirmação com o faxineiro se ele está disponível
++ guardar informação sobre a resposta do faxineiro
+
+
+serviços disponíveis (possível a mudança):
+- limpeza de 4h, 6h, 8h
++ taxa extra de venda de produto
+
+- serviços feitos por orçamento, ex: faxina pós-obra, são feitas em um sistema diferente, o administrador escalona os custos e os cortes dos funcionários manualmente
++ no lado do funcionário, isso não é funcionalmente diferente de um serviço normal
+
+
+- serviços recorrentes
+
+após a faxina(geralmente só depois da primeira), pedir feedback do cliente sobre o faxineiro e vice versa
+- "gostou de trabalhar lá"/"gostou do trabalho"
+- observações extras
+- algumas categorias simples de classificação
++ ex: boa em lavar janela
++ ex: pontualidade ruim
++ ex: boa em faxina pesada
+
+pagamento:
+o pagamento é feito para o aplicativo via boleto, e a parte do funcionário não é entrega até o final do mês
+- os valores das faxinas são todos acertados no final do mês com o funcionário
+
+desktop app -> flexível o suficiente para suportar outras plataformas no futuro

@@ -878,7 +878,6 @@ void carregar_alunos() {
 		printf("Ocorreu algum erro no carregamento de alunos.\n");
 		printf("Cheque se algum aluno já foi salvo anteriormente.");
 	}
-	
 }
 
 // função para salvar alunos num arquivo
@@ -896,5 +895,4 @@ void salvar_alunos() {
 	} else {
 		printf("Ocorreu um erro na criação do arquivo.");
 	}
-	
 }
